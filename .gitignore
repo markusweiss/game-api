@@ -1,0 +1,8 @@
+
+### VisualStudio Code ###
+.vscode/
+
+### Frontend ###
+node/
+node_modules/
+dist/

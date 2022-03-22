@@ -1,0 +1,15 @@
+# EditorConfig (see: https://EditorConfig.org)
+
+# This is the top-most EditorConfig file
+root = true
+
+# The following settings apply to all files
+[*]
+# Default charset
+charset = utf-8
+# Files always end with a newline
+insert_final_newline = true
+# 4 space indentation
+indent_style = space
+indent_size = 4
+
