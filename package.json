@@ -11,6 +11,9 @@
         "start": "node dist/src/server.js",
         "prepare": "husky install"
     },
+    "lint-staged": {
+        "**/*": "prettier --write --ignore-unknown"
+    },
     "keywords": [
         "game, api"
     ],
