@@ -6,3 +6,6 @@
 node/
 node_modules/
 dist/
+
+### Backend ###
+*.sqlite
