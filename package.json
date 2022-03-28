@@ -1,41 +1,42 @@
 {
-    "name": "game-api",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "scripts": {
-        "dev": "ts-node-dev --respawn src/server.ts",
-        "build": "tsc",
-        "eslint": "eslint \"src/**/*.{ts,tsx}\" --fix",
-        "format": "prettier --write \"src/**/*.ts\"",
-        "start": "node dist/src/server.js",
-        "prepare": "husky install"
-    },
-    "lint-staged": {
-        "**/*": "prettier --write --ignore-unknown"
-    },
-    "keywords": [
-        "game, api"
-    ],
-    "author": "markus weiss",
-    "license": "ISC",
-    "devDependencies": {
-        "@types/express": "^4.17.13",
-        "@typescript-eslint/eslint-plugin": "^5.16.0",
-        "@typescript-eslint/parser": "^5.16.0",
-        "eslint": "^8.11.0",
-        "eslint-config-prettier": "^8.5.0",
-        "husky": "^7.0.4",
-        "lint-staged": "^12.3.7",
-        "prettier": "2.6.0",
-        "ts-node-dev": "^1.1.8",
-        "typescript": "^4.6.2"
-    },
-    "dependencies": {
-        "@types/uuid": "^8.3.4",
-        "express": "^4.17.3",
-        "sequelize": "^6.17.0",
-        "sqlite3": "^5.0.2",
-        "uuid": "^8.3.2"
-    }
+	"name": "game-api",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"dev": "ts-node-dev --respawn src/server.ts",
+		"build": "tsc",
+		"eslint": "eslint \"src/**/*.{ts,tsx}\" --fix",
+		"format": "prettier --write \"src/**/*.ts\"",
+		"start": "node dist/src/server.js",
+		"prepare": "husky install"
+	},
+	"lint-staged": {
+		"**/*": "prettier --write --ignore-unknown"
+	},
+	"keywords": [
+		"game, api"
+	],
+	"author": "markus weiss",
+	"license": "ISC",
+	"devDependencies": {
+		"@types/express": "^4.17.13",
+		"@typescript-eslint/eslint-plugin": "^5.16.0",
+		"@typescript-eslint/parser": "^5.16.0",
+		"eslint": "^8.11.0",
+		"eslint-config-prettier": "^8.5.0",
+		"husky": "^7.0.4",
+		"lint-staged": "^12.3.7",
+		"prettier": "2.6.0",
+		"ts-node-dev": "^1.1.8",
+		"typescript": "^4.6.2"
+	},
+	"dependencies": {
+		"@types/uuid": "^8.3.4",
+		"express": "^4.17.3",
+		"express-validator": "^6.14.0",
+		"sequelize": "^6.17.0",
+		"sqlite3": "^5.0.2",
+		"uuid": "^8.3.2"
+	}
 }
