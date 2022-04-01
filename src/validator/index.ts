@@ -1,4 +1,4 @@
-import { body, query } from 'express-validator';
+import { body, param, query } from 'express-validator';
 class Validator {
 	checkCreate() {
 		return [
@@ -27,6 +27,16 @@ class Validator {
 				.optional()
 				.isNumeric()
 				.withMessage('Offset should be a number')
+		];
+	}
+
+	checkId() {
+		return [
+			param('id')
+				.notEmpty()
+				.withMessage('Id hs to be filled')
+				.isUUID(4)
+				.withMessage('The id shoud be v4')
 		];
 	}
 }

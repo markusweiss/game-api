@@ -53,7 +53,26 @@ app.get(
 			return res.json({
 				msg: 'fail to read record',
 				status: 500,
-				route: '/get'
+				route: '/read'
+			});
+		}
+	}
+);
+
+app.get(
+	'/read/:id',
+	Validator.checkId(),
+	Middleware.handleValidationError,
+	async (req: Request, res: Response) => {
+		try {
+			const { id } = req.params;
+			const record = await DataInstance.findOne({ where: { id } });
+			return res.json(record);
+		} catch (e) {
+			return res.json({
+				msg: 'fail to read id',
+				status: 500,
+				route: '/read/id'
 			});
 		}
 	}
