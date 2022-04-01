@@ -1,7 +1,7 @@
-import express, { NextFunction, Request, Response } from 'express';
-import { validationResult } from 'express-validator';
+import express, { Request, Response } from 'express';
 import { v4 as uuidv4 } from 'uuid';
 import db from './config/database.config';
+import Middleware from './middleware';
 import { DataInstance } from './model';
 import Validator from './validator';
 
@@ -18,13 +18,7 @@ app.use(express.json());
 app.post(
 	'/create',
 	Validator.checkCreate(),
-	(req: Request, res: Response, next: NextFunction) => {
-		const error = validationResult(req);
-		if (!error.isEmpty()) {
-			return res.json(error);
-		}
-		next();
-	},
+	Middleware.handleValidationError,
 	async (req: Request, res: Response) => {
 		const id = uuidv4();
 		try {
@@ -36,6 +30,30 @@ app.post(
 				msg: 'fail to create record',
 				status: 500,
 				route: '/create'
+			});
+		}
+	}
+);
+
+app.get(
+	'/read',
+	Validator.checkRead(),
+	Middleware.handleValidationError,
+	async (req: Request, res: Response) => {
+		try {
+			const limit = req.query?.limit as number | undefined;
+			const offset = req.query?.offset as number | undefined;
+			const records = await DataInstance.findAll({
+				where: {},
+				limit,
+				offset
+			});
+			return res.json(records);
+		} catch (e) {
+			return res.json({
+				msg: 'fail to read record',
+				status: 500,
+				route: '/get'
 			});
 		}
 	}
