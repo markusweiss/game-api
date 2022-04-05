@@ -34,7 +34,7 @@ class Validator {
 		return [
 			param('id')
 				.notEmpty()
-				.withMessage('Id hs to be filled')
+				.withMessage('Id has to be filled')
 				.isUUID(4)
 				.withMessage('The id shoud be v4')
 		];

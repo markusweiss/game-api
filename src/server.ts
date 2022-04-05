@@ -78,6 +78,36 @@ app.get(
 	}
 );
 
+app.put(
+	'/update/:id',
+	Validator.checkId(),
+	Middleware.handleValidationError,
+	async (req: Request, res: Response) => {
+		try {
+			const { id } = req.params;
+			const record = await DataInstance.findOne({ where: { id } });
+			//TODO: check error if empty
+			console.log({ id });
+
+			if (!record) {
+				return res.json({ msg: 'fail to find existing record' });
+			}
+
+			const updatedRecord = await record.update({
+				completed: !record.getDataValue('completed')
+			});
+
+			return res.json({ record: updatedRecord });
+		} catch (e) {
+			return res.json({
+				msg: 'fail to update id',
+				status: 500,
+				route: '/update/id'
+			});
+		}
+	}
+);
+
 app.listen(port, () => {
 	console.log('Server on Port: ' + port);
 });
