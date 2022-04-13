@@ -6,7 +6,10 @@ class Validator {
 				.optional()
 				.isUUID(4)
 				.withMessage('UUID has to be Version 4!'),
-			body('title').notEmpty().withMessage('Title must be filled!'),
+			body('playername')
+				.notEmpty()
+				.withMessage('Playername must be filled!'),
+			body('score').notEmpty().withMessage('Score must be filled!'),
 			body('completed')
 				.optional()
 				.isBoolean()

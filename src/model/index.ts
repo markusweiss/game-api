@@ -2,7 +2,8 @@ import { DataTypes, Model } from 'sequelize';
 import db from '../config/database.config';
 interface DataAttributes {
 	id: string;
-	title: string;
+	playername: string;
+	score: string;
 	completed: boolean;
 }
 
@@ -15,8 +16,12 @@ DataInstance.init(
 			primaryKey: true,
 			allowNull: false
 		},
-		title: {
+		playername: {
 			type: DataTypes.STRING,
+			allowNull: false
+		},
+		score: {
+			type: DataTypes.INTEGER,
 			allowNull: false
 		},
 		completed: {
@@ -27,6 +32,6 @@ DataInstance.init(
 	},
 	{
 		sequelize: db,
-		tableName: 'TestTable'
+		tableName: 'GameScores'
 	}
 );

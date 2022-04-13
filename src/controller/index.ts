@@ -25,7 +25,8 @@ class Controller {
 			const records = await DataInstance.findAll({
 				where: {},
 				limit,
-				offset
+				offset,
+				order: [['score', 'DESC']]
 			});
 			return res.json(records);
 		} catch (e) {
