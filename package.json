@@ -8,6 +8,7 @@
 		"build": "tsc",
 		"eslint": "eslint \"src/**/*.{ts,tsx}\" --fix",
 		"format": "prettier --write \"src/**/*.ts\"",
+		"postinstall": "npm run build",
 		"start": "node dist/src/server.js",
 		"prepare": "husky install"
 	},
