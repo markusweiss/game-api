@@ -108,6 +108,31 @@ app.put(
 	}
 );
 
+app.delete(
+	'/delete/:id',
+	Validator.checkId(),
+	Middleware.handleValidationError,
+	async (req: Request, res: Response) => {
+		try {
+			const { id } = req.params;
+			const record = await DataInstance.findOne({ where: { id } });
+
+			if (!record) {
+				return res.json({ msg: 'fail to find existing record' });
+			}
+
+			const deleteRecord = await record.destroy();
+			return res.json({ record: deleteRecord });
+		} catch (e) {
+			return res.json({
+				msg: 'fail to delete id',
+				status: 500,
+				route: '/delete/id'
+			});
+		}
+	}
+);
+
 app.listen(port, () => {
 	console.log('Server on Port: ' + port);
 });
