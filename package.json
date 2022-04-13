@@ -5,10 +5,9 @@
 	"main": "index.js",
 	"scripts": {
 		"dev": "ts-node-dev --respawn src/server.ts",
-		"build": "tsc",
 		"eslint": "eslint \"src/**/*.{ts,tsx}\" --fix",
 		"format": "prettier --write \"src/**/*.ts\"",
-		"postinstall": "npm run build",
+		"postinstall": "tsc",
 		"start": "node dist/src/server.js",
 		"prepare": "husky install"
 	},
