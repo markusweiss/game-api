@@ -35,4 +35,12 @@ http://localhost:9000/read?limit=10&offset=2
 
 ### update
 
+uuid = required
+
+http://localhost:9000/update/{uuid}
+
 ### delete
+
+uuid = required
+
+http://localhost:9000/delete/{uuid}
