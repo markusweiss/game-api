@@ -1,3 +1,4 @@
+import cors from 'cors';
 import express from 'express';
 import db from './config/database.config';
 import router from './route';
@@ -9,6 +10,8 @@ db.sync().then(() => {
 const app = express();
 
 const nodeEnv: number = process.env.PORT as unknown as number;
+
+app.use(cors());
 
 app.use(express.json());
 
