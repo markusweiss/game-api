@@ -8,12 +8,12 @@ db.sync().then(() => {
 
 const app = express();
 
-const port = '3000';
+const nodeEnv: number = process.env.PORT as unknown as number;
 
 app.use(express.json());
 
-app.use('/api/beta/', router);
+app.use('/api/', router);
 
-app.listen(port, () => {
-	console.log('Server on Port: ' + port);
+app.listen(nodeEnv || 3000, '0.0.0.0', () => {
+	console.log('Server is running.');
 });
